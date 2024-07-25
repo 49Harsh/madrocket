@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import images
-import school1 from '../image/col 5.svg';
-import school2 from '../image/col 3.svg';
-import school3 from '../image/col 4.svg';
+import school1 from '../images/col 5.svg';
+import school2 from '../images/col 3.svg';
+import school3 from '../images/col 4.svg';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);

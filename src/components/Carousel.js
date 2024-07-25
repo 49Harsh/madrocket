@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import image1 from '../image/col 5.svg';
-import image2 from '../image/col 3.svg';
-import image3 from '../image/col 4.svg';
+import colone from '../images/col 5.svg';
+import coltwo from '../images/col 3.svg';
+import colthree from '../images/col 4.svg';
 
-const images = [image1, image2, image3];
+const images = [colone, coltwo, colthree];
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
