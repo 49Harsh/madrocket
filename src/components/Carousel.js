@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import image1 from '../image/col 5.svg';
+import image2 from '../image/col 3.svg';
+import image3 from '../image/col 4.svg';
 
-const images = [
-  '/path/to/image1.jpg',
-  '/path/to/image2.jpg',
-  '/path/to/image3.jpg',
-];
+const images = [image1, image2, image3];
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -25,7 +24,7 @@ const Carousel = () => {
           key={currentIndex}
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
-          className="absolute w-full h-full object-cover"
+          className="absolute w-full h-full object-fill"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

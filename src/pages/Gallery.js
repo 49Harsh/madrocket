@@ -1,53 +1,51 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Import images
+import image1 from '../image/image 1.jpeg';
+import image2 from '../image/image 2.jpeg';
+import image3 from '../image/images.jpeg';
+
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [filter, setFilter] = useState('all');
 
   const images = [
-    { id: 1, src: 'https://placeimg.com/300/200/arch', category: 'events' },
-    { id: 2, src: 'https://placeimg.com/300/200/nature', category: 'campus' },
-    { id: 3, src: 'https://placeimg.com/300/200/tech', category: 'activities' },
-    { id: 4, src: 'https://placeimg.com/300/200/people', category: 'events' },
-    { id: 5, src: 'https://placeimg.com/300/200/animals', category: 'activities' },
-    { id: 6, src: 'https://placeimg.com/300/200/arch', category: 'campus' },
+    { id: 1, src: image1, category: 'events' },
+    { id: 2, src: image2, category: 'campus' },
+    { id: 3, src: image3, category: 'activities' },
+    { id: 4, src: image1, category: 'events' },
+    { id: 5, src: image2, category: 'activities' },
+    { id: 6, src: image3, category: 'campus' },
   ];
 
-  const filteredImages = filter === 'all' ? images : images.filter(img => img.category === filter);
+  const filteredImages = filter === 'all' 
+    ? images 
+    : images.filter(img => img.category === filter);
+
+  const handleFilterClick = (newFilter) => {
+    setFilter(newFilter);
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-3xl font-bold text-center mb-8">Our Gallery</h2>
       
       <div className="flex justify-center mb-8">
-        <button 
-          className={`mx-2 px-4 py-2 rounded ${filter === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
-          onClick={() => setFilter('all')}
-        >
-          All
-        </button>
-        <button 
-          className={`mx-2 px-4 py-2 rounded ${filter === 'events' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
-          onClick={() => setFilter('events')}
-        >
-          Events
-        </button>
-        <button 
-          className={`mx-2 px-4 py-2 rounded ${filter === 'campus' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
-          onClick={() => setFilter('campus')}
-        >
-          Campus
-        </button>
-        <button 
-          className={`mx-2 px-4 py-2 rounded ${filter === 'activities' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
-          onClick={() => setFilter('activities')}
-        >
-          Activities
-        </button>
+        {['all', 'events', 'campus', 'activities'].map((filterType) => (
+          <button
+            key={filterType}
+            className={`mx-2 px-4 py-2 rounded ${
+              filter === filterType ? 'bg-blue-500 text-white' : 'bg-gray-200'
+            }`}
+            onClick={() => handleFilterClick(filterType)}
+          >
+            {filterType.charAt(0).toUpperCase() + filterType.slice(1)}
+          </button>
+        ))}
       </div>
 
-      <motion.div 
+      <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
         layout
       >
@@ -63,7 +61,15 @@ const Gallery = () => {
               onClick={() => setSelectedImage(image)}
               className="cursor-pointer"
             >
-              <img src={image.src} alt={`Gallery image ${image.id}`} className="w-full h-full object-cover rounded-lg" />
+              <img 
+                src={image.src} 
+                alt={`Gallery image ${image.id}`} 
+                className="w-full h-full object-cover rounded-lg"
+                onError={(e) => {
+                  console.error(`Error loading image ${image.id}:`, e);
+                  e.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+                }}
+              />
             </motion.div>
           ))}
         </AnimatePresence>
