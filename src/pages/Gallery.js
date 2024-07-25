@@ -50,28 +50,28 @@ const Gallery = () => {
         layout
       >
         <AnimatePresence>
-          {filteredImages.map((image) => (
+        {   filteredImages.map((tasveer) => (
             <motion.div
-              key={image.id}
-              layoutId={`image-${image.id}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              whileHover={{ scale: 1.05 }}
-              onClick={() => setSelectedImage(image)}
-              className="cursor-pointer"
+            key={tasveer.id}
+            layoutId={`image-${tasveer.id}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            whileHover={{ scale: 1.05 }}
+            onClick={() => setSelectedImage(tasveer)}
+            className="cursor-pointer"
             >
-              <img 
-                src={image.src} 
-                alt={`Gallery image ${image.id}`} 
+            <img
+                src={tasveer.src}
+                alt={`Item ${tasveer.id}`} // Yahan pe change kiya gaya hai
                 className="w-full h-full object-cover rounded-lg"
                 onError={(e) => {
-                  console.error(`Error loading image ${image.id}:`, e);
-                  e.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+                console.error(`Error loading image ${tasveer.id}:`, e);
+                e.target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
                 }}
-              />
+            />
             </motion.div>
-          ))}
+        ))}
         </AnimatePresence>
       </motion.div>
 
