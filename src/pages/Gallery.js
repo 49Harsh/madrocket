@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import images
-import image1 from '../image/col 5.svg';
-import image2 from '../image/col 3.svg';
-import image3 from '../image/col 4.svg';
+import school1 from '../image/col 5.svg';
+import school2 from '../image/col 3.svg';
+import school3 from '../image/col 4.svg';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [filter, setFilter] = useState('all');
 
   const images = [
-    { id: 1, src: image1, category: 'events' },
-    { id: 2, src: image2, category: 'campus' },
-    { id: 3, src: image3, category: 'activities' },
-    { id: 4, src: image1, category: 'events' },
-    { id: 5, src: image2, category: 'activities' },
-    { id: 6, src: image3, category: 'campus' },
+    { id: 1, src: school1, category: 'events' },
+    { id: 2, src: school2, category: 'campus' },
+    { id: 3, src: school3, category: 'activities' },
+    { id: 4, src: school1, category: 'events' },
+    { id: 5, src: school2, category: 'activities' },
+    { id: 6, src: school3, category: 'campus' },
   ];
 
   const filteredImages = filter === 'all' 

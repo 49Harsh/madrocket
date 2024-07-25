@@ -25,9 +25,9 @@ const Footer = () => {
           <div className="w-full md:w-1/4 mb-6 md:mb-0">
             <h3 className="text-xl font-bold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-2xl hover:text-blue-300"><FaFacebook /></a>
-              <a href="#" className="text-2xl hover:text-blue-300"><FaTwitter /></a>
-              <a href="#" className="text-2xl hover:text-blue-300"><FaInstagram /></a>
+              <a href="https://harsh-org-portfolio.netlify.app/" className="text-2xl hover:text-blue-300"><FaFacebook /></a>
+              <a href="https://harsh-org-portfolio.netlify.app/" className="text-2xl hover:text-blue-300"><FaTwitter /></a>
+              <a href="https://harsh-org-portfolio.netlify.app/" className="text-2xl hover:text-blue-300"><FaInstagram /></a>
             </div>
           </div>
         </div>
